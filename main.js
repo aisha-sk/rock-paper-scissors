@@ -1,4 +1,5 @@
 // Javascript code
+
 let playerPoints = 0;
 let computerPoints = 0;
 
@@ -17,7 +18,7 @@ function getComputerChoice() {
 
 }
 
-function playRound(playerSelection,computerChoice) {
+function playRound(playerSelection,computerSelection) {
 
     // used for each round played
     // returns the winner
@@ -67,20 +68,54 @@ function playRound(playerSelection,computerChoice) {
         computerPoints += 1
         return "You Lost! Scissors beats Paper"
     } 
+
+    else {
+        return "Invalid choice, please try again - rock/paper/scissors"
+    }
     
 }
 
-const playerSelection = "rock"; 
-const computerSelection = getComputerChoice();
+// console.log(playRound(playerSelection, computerSelection));
 
-console.log(playRound(playerSelection, computerSelection));
+// console.log(playerPoints,computerPoints); playerScore == 5 || computerScore == 5
 
-// console.log(playerPoints,computerPoints);
-
-/*function game() {
+function game() {
     
-    for (i = 0; i < 5; i++) {
-        
+    while (computerPoints < 5 && playerPoints < 5) {
+
+        let playerSelection = prompt("Enter your choice: (rock/paper/scissors)")
+        let computerSelection = getComputerChoice()
+        let result = playRound(playerSelection,computerSelection)
+
+        console.log(result)
+        console.log("Your points: ", playerPoints)
+        console.log("Computer's Points: ", computerPoints)
+
     }
 
-}*/
+    if (playerPoints > computerPoints) {
+
+        console.log(`Final Result: You are the winner! :)\n
+        Final Score - ${playerPoints}:${computerPoints}`)
+
+    }
+
+    else if (playerPoints < computerPoints) {
+
+        console.log(`Final Result: Computer is the winner! :(\n
+            Final Score - ${playerPoints}:${computerPoints}`)
+    }
+
+    else if (playerPoints === computerPoints) {
+
+        console.log(`Oops. It's a draw. Nobody wins :(\n
+            Final Score - ${playerPoints}:${computerPoints}`)
+    }
+
+}
+
+// let playerSelection = prompt("Enter your choice: (rock/paper/scissors)")
+// let computerSelection = getComputerChoice();
+
+
+game()
