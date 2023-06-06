@@ -1,121 +1,133 @@
-// Javascript code
-
 let playerPoints = 0;
 let computerPoints = 0;
 
+const rock = document.querySelector('#rock')
+const paper = document.querySelector('#paper')
+const scissors = document.querySelector('#scissors')
+const outcomeDiv = document.querySelector('.outcome')
+const playerScoreSpan = document.querySelector('.player-score')
+const computerScoreSpan = document.querySelector('.computer-score')
+
+
+rock.addEventListener('click', () => {
+    let computerSelection = getComputerChoice()
+    const playerSelection = "rock"
+    playRound(playerSelection,computerSelection)
+    checkWinner(playerPoints,computerPoints)
+    playerScoreSpan.innerText = `Player: ${playerPoints}`
+    computerScoreSpan.innerText = `Computer: ${computerPoints}`
+})
+
+paper.addEventListener("click", () => {
+    let computerSelection = getComputerChoice()
+    const playerSelection = "paper"
+    playRound(playerSelection,computerSelection)
+    checkWinner(playerPoints,computerPoints)
+    playerScoreSpan.innerText = `Player: ${playerPoints}`
+    computerScoreSpan.innerText = `Computer: ${computerPoints}`
+})
+
+scissors.addEventListener("click", () => {
+    let computerSelection = getComputerChoice()
+    const playerSelection = "scissors"
+    playRound(playerSelection,computerSelection)
+    checkWinner(playerPoints,computerPoints)
+    playerScoreSpan.innerText = `Player: ${playerPoints}`
+    computerScoreSpan.innerText = `Computer: ${computerPoints}`
+})
+
+
+const checkWinner = (playerPoints,computerPoints) => {
+    
+    if (playerPoints > 5 || computerPoints > 5 ){
+        return false
+    }
+    if (playerPoints === 5) {
+        const h2 = document.createElement('h2')
+        h2.classList.add('player-won')
+        h2.innerText = `You won! The final score is ${playerPoints}:${computerPoints}`
+        outcomeDiv.append(h2)
+        
+    }
+    if (computerPoints === 5) {
+        const h2 = document.createElement('h2')
+        h2.classList.add('computer-won')
+        h2.innerText = `The computer has won! The final score is ${playerPoints}:${computerPoints}`
+        outcomeDiv.append(h2)
+    }
+    
+} 
+
 function getComputerChoice() {
-
-    // variable i chooses an index value
-    // it will be used to select a random value (array)
-    // possible i values are {0,1,2}
-
     let i = Math.floor(Math.random() * 3)
 
     choices = ["rock","paper","scissors"]
     computerChoice = choices[i]
-    
     return computerChoice
-
 }
 
 function playRound(playerSelection,computerSelection) {
 
-    // used for each round played
-    // returns the winner
+    if (playerPoints >= 5 || computerPoints >= 5 ){
+        return false
+    }
     
     if (playerSelection === "paper" && computerSelection === "rock") {
-
         playerPoints += 1
-        return "You Win! Paper beats Rock"
+        const p = document.createElement('p')
+        p.innerText = "You Win! Paper beats Rock"
+        outcomeDiv.appendChild(p)
 
     }
     
     else if (playerSelection === "rock" && computerSelection === "scissors") {
-
         playerPoints += 1
-        return "You Win! Rock beats Scissors"
+        const p = document.createElement('p')
+        p.innerText = "You Win! Rock beats Scissors"
+        outcomeDiv.appendChild(p)
     }
     
     else if (playerSelection === "scissors" && computerSelection === "paper") {
-
         playerPoints += 1
-        return "You Win! Scissors beats Paper"
+        const p = document.createElement('p')
+        p.innerText = "You Win! Scissors beats Paper"
+        outcomeDiv.appendChild(p)
     } 
 
     else if (playerSelection === "rock" && computerSelection === "rock" 
     || playerSelection === "paper" && computerSelection === "paper"
     || playerSelection === "scissors" && computerSelection === "scissors") {
-
         playerPoints += 1
         computerPoints += 1
-        return "Oops, it's a draw. You both get a point!"
+        const p = document.createElement('p')
+        p.innerText = "Oops, it's a draw. You both get a point!"
+        outcomeDiv.appendChild(p)
     }
     else if (playerSelection === "rock" && computerSelection === "paper") {
-
         computerPoints += 1
-        return "You Lost! Paper beats Rock"
-
+        const p = document.createElement('p')
+        p.innerText = "You Lost! Paper beats Rock"
+        outcomeDiv.appendChild(p)
     }
     
     else if (playerSelection === "scissors" && computerSelection === "rock") {
-
         computerPoints += 1
-        return "You Lost! Rock beats Scissors"
+        const p = document.createElement('p')
+        p.innerText = "You Lost! Rock beats Scissors"
+        outcomeDiv.appendChild(p)
     }
     
     else if (playerSelection === "paper" && computerSelection === "scissors") {
-
         computerPoints += 1
-        return "You Lost! Scissors beats Paper"
+        const p = document.createElement('p')
+        p.innerText = "You Lost! Scissors beats Paper"
+        outcomeDiv.appendChild(p)
     } 
 
     else {
-        return "Invalid choice, please try again - rock/paper/scissors"
+        const p = document.createElement('p')
+        p.innerText = "Invalid choice, please try again - rock/paper/scissors"
+        outcomeDiv.appendChild(p)
     }
     
 }
-
-// console.log(playRound(playerSelection, computerSelection));
-
-// console.log(playerPoints,computerPoints); playerScore == 5 || computerScore == 5
-
-function game() {
-    
-    while (computerPoints < 5 && playerPoints < 5) {
-
-        let playerSelection = prompt("Enter your choice: (rock/paper/scissors)")
-        let computerSelection = getComputerChoice()
-        let result = playRound(playerSelection,computerSelection)
-
-        console.log(result)
-        console.log("Your points: ", playerPoints)
-        console.log("Computer's Points: ", computerPoints)
-
-    }
-
-    if (playerPoints > computerPoints) {
-
-        console.log(`Final Result: You are the winner! :)\n
-        Final Score - ${playerPoints}:${computerPoints}`)
-
-    }
-
-    else if (playerPoints < computerPoints) {
-
-        console.log(`Final Result: Computer is the winner! :(\n
-            Final Score - ${playerPoints}:${computerPoints}`)
-    }
-
-    else if (playerPoints === computerPoints) {
-
-        console.log(`Oops. It's a draw. Nobody wins :(\n
-            Final Score - ${playerPoints}:${computerPoints}`)
-    }
-
-}
-
-// let playerSelection = prompt("Enter your choice: (rock/paper/scissors)")
-// let computerSelection = getComputerChoice();
-
-
-game()
