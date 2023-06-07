@@ -6,8 +6,10 @@ const rock = document.querySelector('#rock')
 const paper = document.querySelector('#paper')
 const scissors = document.querySelector('#scissors')
 const outcomeDiv = document.querySelector('.outcome')
+
 const playerScoreSpan = document.querySelector('.player-score')
 const computerScoreSpan = document.querySelector('.computer-score')
+
 const playAgain = document.querySelector('.play-again')
 const choiceDisplay = document.querySelector('#choices')
 const finalResult = document.querySelector('.final-result')
@@ -22,13 +24,17 @@ rock.addEventListener('click', () => {
         return false
     }
     else {
+
         let computerSelection = getComputerChoice()
         const playerSelection = "rock"
         playRound(playerSelection,computerSelection)
+
         if (playerPoints === 5 || computerPoints === 5){
+
             playerScoreSpan.innerText = `Player: ${playerPoints}`
             computerScoreSpan.innerText = `Computer: ${computerPoints}`
             checkWinner(playerPoints,computerPoints)
+
             playerPoints++
             computerPoints++
             
@@ -45,13 +51,17 @@ paper.addEventListener("click", () => {
         return false
     }
     else {
+
         let computerSelection = getComputerChoice()
         const playerSelection = "paper"
         playRound(playerSelection,computerSelection)
+
         if (playerPoints === 5 || computerPoints === 5){
+
             playerScoreSpan.innerText = `Player: ${playerPoints}`
             computerScoreSpan.innerText = `Computer: ${computerPoints}`
             checkWinner(playerPoints,computerPoints)
+
             playerPoints++
             computerPoints++
             
@@ -68,18 +78,23 @@ scissors.addEventListener("click", () => {
         return false
     }
     else {
+
         let computerSelection = getComputerChoice()
         const playerSelection = "scissors"
         playRound(playerSelection,computerSelection)
+
         if (playerPoints === 5 || computerPoints === 5){
+
             playerScoreSpan.innerText = `Player: ${playerPoints}`
             computerScoreSpan.innerText = `Computer: ${computerPoints}`
             checkWinner(playerPoints,computerPoints)
+
             playerPoints++
             computerPoints++
             
         }
         else {
+            
             playerScoreSpan.innerText = `Player: ${playerPoints}`
             computerScoreSpan.innerText = `Computer: ${computerPoints}`
         }
@@ -90,20 +105,24 @@ scissors.addEventListener("click", () => {
 const checkWinner = (playerPoints,computerPoints) => {
     
     if (playerPoints === 5) {
+
         const h2 = document.createElement('h2')
         h2.classList.add('player-won')
         h2.innerText = `You won! The final score is ${playerPoints}:${computerPoints}`
         finalResult.append(h2)
+
         const playAgainbtn = document.createElement('button')
         playAgainbtn.innerText = "Play Again"
         playAgain.append(playAgainbtn)
         
     }
     if (computerPoints === 5) {
+
         const h2 = document.createElement('h2')
         h2.classList.add('computer-won')
         h2.innerText = `The computer has won! The final score is ${playerPoints}:${computerPoints}`
         finalResult.append(h2)
+
         const playAgainbtn = document.createElement('button')
         playAgainbtn.innerText = "Play Again"
         playAgain.append(playAgainbtn)
@@ -127,6 +146,7 @@ function playRound(playerSelection,computerSelection) {
     }
     
     if (playerSelection === "paper" && computerSelection === "rock") {
+
         playerPoints += 1
         const p = document.createElement('p')
         p.innerText = "You Win! Paper beats Rock\n\n"
@@ -135,6 +155,7 @@ function playRound(playerSelection,computerSelection) {
     }
     
     else if (playerSelection === "rock" && computerSelection === "scissors") {
+
         playerPoints += 1
         const p = document.createElement('p')
         p.innerText = "You Win! Rock beats Scissors\n\n"
@@ -151,6 +172,7 @@ function playRound(playerSelection,computerSelection) {
     else if (playerSelection === "rock" && computerSelection === "rock" 
     || playerSelection === "paper" && computerSelection === "paper"
     || playerSelection === "scissors" && computerSelection === "scissors") {
+
         playerPoints += 0
         computerPoints += 0
         const p = document.createElement('p')
@@ -158,6 +180,7 @@ function playRound(playerSelection,computerSelection) {
         outcomeDiv.appendChild(p)
     }
     else if (playerSelection === "rock" && computerSelection === "paper") {
+
         computerPoints += 1
         const p = document.createElement('p')
         p.innerText = "You Lost! Paper beats Rock\n\n"
@@ -165,6 +188,7 @@ function playRound(playerSelection,computerSelection) {
     }
     
     else if (playerSelection === "scissors" && computerSelection === "rock") {
+
         computerPoints += 1
         const p = document.createElement('p')
         p.innerText = "You Lost! Rock beats Scissors\n\n"
@@ -172,6 +196,7 @@ function playRound(playerSelection,computerSelection) {
     }
     
     else if (playerSelection === "paper" && computerSelection === "scissors") {
+
         computerPoints += 1
         const p = document.createElement('p')
         p.innerText = "You Lost! Scissors beats Paper\n\n"
@@ -183,4 +208,3 @@ function playRound(playerSelection,computerSelection) {
     choiceDisplay.append(choiceAns)
 
 }
-
