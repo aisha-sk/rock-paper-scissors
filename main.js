@@ -9,9 +9,11 @@ const outcomeDiv = document.querySelector('.outcome')
 const playerScoreSpan = document.querySelector('.player-score')
 const computerScoreSpan = document.querySelector('.computer-score')
 const playAgain = document.querySelector('.play-again')
+const choiceDisplay = document.querySelector('#choices')
+const finalResult = document.querySelector('.final-result')
 
 playAgain.addEventListener ('click', () => {
-    window.location.reload()
+    window.location.reload();
 })
 
 rock.addEventListener('click', () => {
@@ -91,7 +93,7 @@ const checkWinner = (playerPoints,computerPoints) => {
         const h2 = document.createElement('h2')
         h2.classList.add('player-won')
         h2.innerText = `You won! The final score is ${playerPoints}:${computerPoints}`
-        outcomeDiv.append(h2)
+        finalResult.append(h2)
         const playAgainbtn = document.createElement('button')
         playAgainbtn.innerText = "Play Again"
         playAgain.append(playAgainbtn)
@@ -101,7 +103,7 @@ const checkWinner = (playerPoints,computerPoints) => {
         const h2 = document.createElement('h2')
         h2.classList.add('computer-won')
         h2.innerText = `The computer has won! The final score is ${playerPoints}:${computerPoints}`
-        outcomeDiv.append(h2)
+        finalResult.append(h2)
         const playAgainbtn = document.createElement('button')
         playAgainbtn.innerText = "Play Again"
         playAgain.append(playAgainbtn)
@@ -127,7 +129,7 @@ function playRound(playerSelection,computerSelection) {
     if (playerSelection === "paper" && computerSelection === "rock") {
         playerPoints += 1
         const p = document.createElement('p')
-        p.innerText = "You Win! Paper beats Rock"
+        p.innerText = "You Win! Paper beats Rock\n\n"
         outcomeDiv.appendChild(p)
 
     }
@@ -135,14 +137,14 @@ function playRound(playerSelection,computerSelection) {
     else if (playerSelection === "rock" && computerSelection === "scissors") {
         playerPoints += 1
         const p = document.createElement('p')
-        p.innerText = "You Win! Rock beats Scissors"
+        p.innerText = "You Win! Rock beats Scissors\n\n"
         outcomeDiv.appendChild(p)
     }
     
     else if (playerSelection === "scissors" && computerSelection === "paper") {
         playerPoints += 1
         const p = document.createElement('p')
-        p.innerText = "You Win! Scissors beats Paper"
+        p.innerText = "You Win! Scissors beats Paper\n\n"
         outcomeDiv.appendChild(p)
     } 
 
@@ -152,29 +154,33 @@ function playRound(playerSelection,computerSelection) {
         playerPoints += 0
         computerPoints += 0
         const p = document.createElement('p')
-        p.innerText = "Oops, it's a draw. Nobody gets a point."
+        p.innerText = "Oops, it's a draw. Nobody gets a point.\n\n"
         outcomeDiv.appendChild(p)
     }
     else if (playerSelection === "rock" && computerSelection === "paper") {
         computerPoints += 1
         const p = document.createElement('p')
-        p.innerText = "You Lost! Paper beats Rock"
+        p.innerText = "You Lost! Paper beats Rock\n\n"
         outcomeDiv.appendChild(p)
     }
     
     else if (playerSelection === "scissors" && computerSelection === "rock") {
         computerPoints += 1
         const p = document.createElement('p')
-        p.innerText = "You Lost! Rock beats Scissors"
+        p.innerText = "You Lost! Rock beats Scissors\n\n"
         outcomeDiv.appendChild(p)
     }
     
     else if (playerSelection === "paper" && computerSelection === "scissors") {
         computerPoints += 1
         const p = document.createElement('p')
-        p.innerText = "You Lost! Scissors beats Paper"
+        p.innerText = "You Lost! Scissors beats Paper\n\n"
         outcomeDiv.appendChild(p)
     } 
+
+    const choiceAns = document.createElement('p')
+    choiceAns.innerText = `Player Choice: ${playerSelection} | Computer Choice: ${computerSelection}\n\n`
+    choiceDisplay.append(choiceAns)
 
 }
 
