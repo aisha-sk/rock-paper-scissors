@@ -5,22 +5,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lacquer&display=swap" rel="stylesheet">   
     <title>Rock Paper Scissors</title>
 </head>
 <body>
+    
     <div class="running-score">
-        <span class="player-score"></span>
-        <span class="computer-score"></span>
+        <span class="player-score scores"> -> Running Scores -> </span>
+        <span class="computer-score scores"></span>
     </div>
+    <div id="title">
+        Rock Paper Scissors!
+    </div>
+    <div class="final-result"></div>
+
     <div class="container">
         <button id="rock" class="btn">Rock</button>
         <button id="paper" class="btn">Paper</button>
         <button id="scissors" class="btn">Scissors</button>
     </div>
 
-    <div class="outcome"></div>
-
     <div class="play-again"></div>
+
+    <div class="bottom">
+        <div id="choices"></div>
+        <!-- left -->
+        <div class="outcome"></div>
+        <!-- right -->
+    </div>
 
     <script type="text/javascript" src="main.js"></script> 
 </body>
