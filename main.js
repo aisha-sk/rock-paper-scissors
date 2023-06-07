@@ -1,6 +1,7 @@
 let playerPoints = 0;
 let computerPoints = 0;
 
+const btn = document.querySelector('.btn')
 const rock = document.querySelector('#rock')
 const paper = document.querySelector('#paper')
 const scissors = document.querySelector('#scissors')
@@ -8,40 +9,78 @@ const outcomeDiv = document.querySelector('.outcome')
 const playerScoreSpan = document.querySelector('.player-score')
 const computerScoreSpan = document.querySelector('.computer-score')
 
-
 rock.addEventListener('click', () => {
-    let computerSelection = getComputerChoice()
-    const playerSelection = "rock"
-    playRound(playerSelection,computerSelection)
-    checkWinner(playerPoints,computerPoints)
-    playerScoreSpan.innerText = `Player: ${playerPoints}`
-    computerScoreSpan.innerText = `Computer: ${computerPoints}`
+    if (playerPoints > 5 || computerPoints >5) {
+        return false
+    }
+    else {
+        let computerSelection = getComputerChoice()
+        const playerSelection = "rock"
+        playRound(playerSelection,computerSelection)
+        if (playerPoints === 5 || computerPoints === 5){
+            playerScoreSpan.innerText = `Player: ${playerPoints}`
+            computerScoreSpan.innerText = `Computer: ${computerPoints}`
+            checkWinner(playerPoints,computerPoints)
+            playerPoints++
+            computerPoints++
+            
+        }
+        else {
+            playerScoreSpan.innerText = `Player: ${playerPoints}`
+            computerScoreSpan.innerText = `Computer: ${computerPoints}`
+        }
+    }   
 })
 
 paper.addEventListener("click", () => {
-    let computerSelection = getComputerChoice()
-    const playerSelection = "paper"
-    playRound(playerSelection,computerSelection)
-    checkWinner(playerPoints,computerPoints)
-    playerScoreSpan.innerText = `Player: ${playerPoints}`
-    computerScoreSpan.innerText = `Computer: ${computerPoints}`
+    if (playerPoints > 5 || computerPoints >5) {
+        return false
+    }
+    else {
+        let computerSelection = getComputerChoice()
+        const playerSelection = "paper"
+        playRound(playerSelection,computerSelection)
+        if (playerPoints === 5 || computerPoints === 5){
+            playerScoreSpan.innerText = `Player: ${playerPoints}`
+            computerScoreSpan.innerText = `Computer: ${computerPoints}`
+            checkWinner(playerPoints,computerPoints)
+            playerPoints++
+            computerPoints++
+            
+        }
+        else {
+            playerScoreSpan.innerText = `Player: ${playerPoints}`
+            computerScoreSpan.innerText = `Computer: ${computerPoints}`
+        }
+    }
 })
 
 scissors.addEventListener("click", () => {
-    let computerSelection = getComputerChoice()
-    const playerSelection = "scissors"
-    playRound(playerSelection,computerSelection)
-    checkWinner(playerPoints,computerPoints)
-    playerScoreSpan.innerText = `Player: ${playerPoints}`
-    computerScoreSpan.innerText = `Computer: ${computerPoints}`
+    if (playerPoints > 5 || computerPoints >5) {
+        return false
+    }
+    else {
+        let computerSelection = getComputerChoice()
+        const playerSelection = "scissors"
+        playRound(playerSelection,computerSelection)
+        if (playerPoints === 5 || computerPoints === 5){
+            playerScoreSpan.innerText = `Player: ${playerPoints}`
+            computerScoreSpan.innerText = `Computer: ${computerPoints}`
+            checkWinner(playerPoints,computerPoints)
+            playerPoints++
+            computerPoints++
+            
+        }
+        else {
+            playerScoreSpan.innerText = `Player: ${playerPoints}`
+            computerScoreSpan.innerText = `Computer: ${computerPoints}`
+        }
+    }
 })
 
 
 const checkWinner = (playerPoints,computerPoints) => {
     
-    if (playerPoints > 5 || computerPoints > 5 ){
-        return false
-    }
     if (playerPoints === 5) {
         const h2 = document.createElement('h2')
         h2.classList.add('player-won')
@@ -54,6 +93,7 @@ const checkWinner = (playerPoints,computerPoints) => {
         h2.classList.add('computer-won')
         h2.innerText = `The computer has won! The final score is ${playerPoints}:${computerPoints}`
         outcomeDiv.append(h2)
+        
     }
     
 } 
@@ -97,10 +137,10 @@ function playRound(playerSelection,computerSelection) {
     else if (playerSelection === "rock" && computerSelection === "rock" 
     || playerSelection === "paper" && computerSelection === "paper"
     || playerSelection === "scissors" && computerSelection === "scissors") {
-        playerPoints += 1
-        computerPoints += 1
+        playerPoints += 0
+        computerPoints += 0
         const p = document.createElement('p')
-        p.innerText = "Oops, it's a draw. You both get a point!"
+        p.innerText = "Oops, it's a draw. Nobody gets a point."
         outcomeDiv.appendChild(p)
     }
     else if (playerSelection === "rock" && computerSelection === "paper") {
@@ -124,10 +164,5 @@ function playRound(playerSelection,computerSelection) {
         outcomeDiv.appendChild(p)
     } 
 
-    else {
-        const p = document.createElement('p')
-        p.innerText = "Invalid choice, please try again - rock/paper/scissors"
-        outcomeDiv.appendChild(p)
-    }
-    
 }
+
