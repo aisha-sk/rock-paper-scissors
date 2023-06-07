@@ -11,7 +11,13 @@
     font-size: 30px;
     color: black;
     border-radius:6px;
+    transition: transform 250ms;
 }
+
+.btn:hover {
+    transform: translateY(-10px);
+    background-color:#aaff00
+  }
 
 .container {
     display:flex;
@@ -73,7 +79,13 @@
     padding:10px;
     background-color: rgb(0, 255, 238);
     font-size: 25px;
+    transition: transform 250ms;
 }
+
+.play-again > button:hover {
+    transform: translateY(-10px);
+    background-color:rgb(19, 175, 175)
+  }
 
 .final-result > h2 {
     color:white;
