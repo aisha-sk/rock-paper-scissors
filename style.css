@@ -1,0 +1,85 @@
+* {
+    margin:0px;
+    padding:0px;
+    background-color:#000000;
+    font-family: 'Lacquer', cursive;
+}
+
+.btn {
+    background-color:#d9ff00;
+    padding: 30px;
+    font-size: 30px;
+    color: black;
+    border-radius:6px;
+}
+
+.container {
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items:center;
+    margin-top: 100px;
+    gap:30px;
+    flex-wrap:wrap;
+}
+
+.running-score {
+    font-size:40px;
+    width: 430px;
+    margin: 20px;
+    padding: 10px;
+    
+    background-color:#a9ff5e;
+}
+
+.scores {
+    background-color:#a9ff5e;
+
+}
+
+#title {
+    text-align:center;
+    font-size:50px;
+    color:white;
+}
+
+.outcome {
+    color:white;
+    font-size: 20px;
+    
+}
+
+#choices {
+    color: white;
+    font-size: 20px;
+}
+
+.bottom {
+    margin-top:0px;
+    display:flex;
+    justify-content: space-around;
+    gap:40px;
+    flex-wrap:wrap;
+}
+
+.play-again {
+    display:flex;
+    justify-content:center;
+    margin:60px;
+    color:white;
+}
+.play-again > button {
+    color:white;
+    padding:10px;
+    background-color: rgb(32, 43, 87);
+    font-size: 25px;
+}
+
+.final-result > h2 {
+    color:white;
+    display:flex;
+    justify-content:center;
+    margin-top:20px;
+    font-size:40px;
+
+}
