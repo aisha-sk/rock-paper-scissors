@@ -30,15 +30,16 @@
 }
 
 .running-score {
-    width: 330px;
+    width: 300px;
     margin: 20px;
     padding: 10px;
     background-color:#a9ff5e;
+    font-size:30px;
 }
 
 .scores {
     background-color:#a9ff5e;
-    font-size:30px;
+    font-size:25px;
 
 }
 
