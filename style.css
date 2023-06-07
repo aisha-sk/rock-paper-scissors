@@ -69,9 +69,9 @@
     color:white;
 }
 .play-again > button {
-    color:white;
+    color:rgb(0, 0, 0);
     padding:10px;
-    background-color: rgb(32, 43, 87);
+    background-color: rgb(0, 255, 238);
     font-size: 25px;
 }
 
