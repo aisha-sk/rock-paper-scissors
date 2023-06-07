@@ -8,9 +8,15 @@ const scissors = document.querySelector('#scissors')
 const outcomeDiv = document.querySelector('.outcome')
 const playerScoreSpan = document.querySelector('.player-score')
 const computerScoreSpan = document.querySelector('.computer-score')
+const playAgain = document.querySelector('.play-again')
+
+playAgain.addEventListener ('click', () => {
+    window.location.reload()
+})
 
 rock.addEventListener('click', () => {
     if (playerPoints > 5 || computerPoints >5) {
+
         return false
     }
     else {
@@ -86,6 +92,9 @@ const checkWinner = (playerPoints,computerPoints) => {
         h2.classList.add('player-won')
         h2.innerText = `You won! The final score is ${playerPoints}:${computerPoints}`
         outcomeDiv.append(h2)
+        const playAgainbtn = document.createElement('button')
+        playAgainbtn.innerText = "Play Again"
+        playAgain.append(playAgainbtn)
         
     }
     if (computerPoints === 5) {
@@ -93,6 +102,9 @@ const checkWinner = (playerPoints,computerPoints) => {
         h2.classList.add('computer-won')
         h2.innerText = `The computer has won! The final score is ${playerPoints}:${computerPoints}`
         outcomeDiv.append(h2)
+        const playAgainbtn = document.createElement('button')
+        playAgainbtn.innerText = "Play Again"
+        playAgain.append(playAgainbtn)
         
     }
     
