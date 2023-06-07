@@ -30,8 +30,7 @@
 }
 
 .running-score {
-    font-size:40px;
-    width: 430px;
+    width: 330px;
     margin: 20px;
     padding: 10px;
     
@@ -40,6 +39,7 @@
 
 .scores {
     background-color:#a9ff5e;
+    font-size:30px;
 
 }
 
