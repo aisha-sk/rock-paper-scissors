@@ -141,6 +141,7 @@ function getComputerChoice() {
 
 function playRound(playerSelection,computerSelection) {
 
+
     if (playerPoints >= 5 || computerPoints >= 5 ){
         return false
     }
@@ -148,25 +149,25 @@ function playRound(playerSelection,computerSelection) {
     if (playerSelection === "paper" && computerSelection === "rock") {
 
         playerPoints += 1
-        const p = document.createElement('p')
-        p.innerText = "You Win! Paper beats Rock\n\n"
-        outcomeDiv.appendChild(p)
+        
+        outcomeDiv.innerText = "You Win! Paper beats Rock\n\n"
+        
 
     }
     
     else if (playerSelection === "rock" && computerSelection === "scissors") {
 
         playerPoints += 1
-        const p = document.createElement('p')
-        p.innerText = "You Win! Rock beats Scissors\n\n"
-        outcomeDiv.appendChild(p)
+        
+        outcomeDiv.innerText = "You Win! Rock beats Scissors\n\n"
+        
     }
     
     else if (playerSelection === "scissors" && computerSelection === "paper") {
         playerPoints += 1
-        const p = document.createElement('p')
-        p.innerText = "You Win! Scissors beats Paper\n\n"
-        outcomeDiv.appendChild(p)
+        
+        outcomeDiv.innerText = "You Win! Scissors beats Paper\n\n"
+        
     } 
 
     else if (playerSelection === "rock" && computerSelection === "rock" 
@@ -175,36 +176,36 @@ function playRound(playerSelection,computerSelection) {
 
         playerPoints += 0
         computerPoints += 0
-        const p = document.createElement('p')
-        p.innerText = "Oops, it's a draw. Nobody gets a point.\n\n"
-        outcomeDiv.appendChild(p)
+        
+        outcomeDiv.innerText = "Oops, it's a draw. Nobody gets a point.\n\n"
+        
     }
     else if (playerSelection === "rock" && computerSelection === "paper") {
 
         computerPoints += 1
         const p = document.createElement('p')
-        p.innerText = "You Lost! Paper beats Rock\n\n"
-        outcomeDiv.appendChild(p)
+        outcomeDiv.innerText = "You Lost! Paper beats Rock\n\n"
+        
     }
     
     else if (playerSelection === "scissors" && computerSelection === "rock") {
 
         computerPoints += 1
-        const p = document.createElement('p')
-        p.innerText = "You Lost! Rock beats Scissors\n\n"
-        outcomeDiv.appendChild(p)
+        
+        outcomeDiv.innerText = "You Lost! Rock beats Scissors\n\n"
+        
     }
     
     else if (playerSelection === "paper" && computerSelection === "scissors") {
 
         computerPoints += 1
-        const p = document.createElement('p')
-        p.innerText = "You Lost! Scissors beats Paper\n\n"
-        outcomeDiv.appendChild(p)
+        
+        outcomeDiv.innerText = "You Lost! Scissors beats Paper\n\n"
+        
     } 
 
-    const choiceAns = document.createElement('p')
-    choiceAns.innerText = `Player Choice: ${playerSelection} | Computer Choice: ${computerSelection}\n\n`
-    choiceDisplay.append(choiceAns)
+    //const choiceAns = document.createElement('p')
+    choiceDisplay.innerText = `Player Choice: ${playerSelection} | Computer Choice: ${computerSelection}\n\n`
+    // choiceDisplay.append(choiceAns)
 
 }
